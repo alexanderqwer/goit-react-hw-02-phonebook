@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Styles from './Filter.module.css';
+import inputId from '../../services/helpers';
 
 const Filter = ({ length, filterId, filter, handleChange }) => {
   return (
@@ -10,7 +11,7 @@ const Filter = ({ length, filterId, filter, handleChange }) => {
           Find contacts by name
           <input
             type="text"
-            id={filterId}
+            id={inputId.filterId}
             value={filter}
             onChange={handleChange}
             name="filter"

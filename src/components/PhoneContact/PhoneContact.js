@@ -16,12 +16,6 @@ export default class PhoneContact extends Component {
     filter: '',
   };
 
-  inputId = {
-    name: shortid.generate(),
-    number: shortid.generate(),
-    filter: shortid.generate(),
-  };
-
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
@@ -44,10 +38,11 @@ export default class PhoneContact extends Component {
     }
   };
 
-  delete = e => {
+  deleteContact = e => {
     const { id } = e.target;
     const { contacts } = this.state;
-    this.setState({ contacts: contacts.filter(item => item.id !== id) });
+    const filter = contacts.filter(item => item.id !== id);
+    this.setState({ contacts: filter });
   };
 
   filterContacts = () => {
@@ -62,21 +57,16 @@ export default class PhoneContact extends Component {
     return (
       <div>
         <h3 className={Styles.allTitle}>Phonebook</h3>
-        <ContactForm
-          handleSubmit={this.handleSubmit}
-          nameId={this.inputId.name}
-          numberId={this.inputId.number}
-        />
+        <ContactForm handleSubmit={this.handleSubmit} />
         <h3 className={Styles.allTitle}>Contacts</h3>
         <Filter
           length={contacts.length}
           filter={filter}
-          filterId={this.inputId.filter}
           handleChange={this.handleChange}
         />
         <ContactList
           filterContacts={this.filterContacts}
-          onClickDelete={this.delete}
+          onClickDelete={this.deleteContact}
         />
       </div>
     );
