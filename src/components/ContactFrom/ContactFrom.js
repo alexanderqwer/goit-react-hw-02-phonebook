@@ -39,7 +39,7 @@ export default class ContactFrom extends Component {
         <label className={Styles.input} htmlFor={inputId.numberId}>
           Number
           <input
-            type="tel"
+            type="number"
             value={number}
             onChange={this.handleChange}
             id={inputId.numberId}
