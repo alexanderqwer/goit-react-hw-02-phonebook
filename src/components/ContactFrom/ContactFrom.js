@@ -25,24 +25,24 @@ export default class ContactFrom extends Component {
     const { name, number } = this.state;
     return (
       <form className={Styles.addContact} onSubmit={this.reset}>
-        <label className={Styles.input} htmlFor={inputId.nameId}>
+        <label className={Styles.input} htmlFor={inputId.name}>
           Name
           <input
             type="text"
             value={name}
             onChange={this.handleChange}
-            id={inputId.nameId}
+            id={inputId.name}
             name="name"
             className={Styles.widthInput}
           />
         </label>
-        <label className={Styles.input} htmlFor={inputId.numberId}>
+        <label className={Styles.input} htmlFor={inputId.number}>
           Number
           <input
             type="number"
             value={number}
             onChange={this.handleChange}
-            id={inputId.numberId}
+            id={inputId.number}
             name="number"
             className={Styles.widthInput}
           />
